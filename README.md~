@@ -54,17 +54,3 @@ define('DB_USERNAME', 'YOUR-USER-NAME'); // Mysql username
 define('DB_PASSWORD', 'YOUR-PASSWORD'); // Mysql password
 define('DB_DATABASE', 'ATS_SPC'); // Database name
 ```
--- ---------------------------------------------------------- 
-## Mockups
-
-![main.png ](mockups/main.png )
-![mainfr.png ](mockups/mainfr.png )
-![adminfr.png ](mockups/adminfr.png )
-![adminlist.png](mockups/adminlist.png)
-![reportdate.png ](mockups/reportdate.png )
-![searchdate.png ](mockups/searchdate.png )
-![searchname.png ](mockups/searchname.png )
-![regestration.png](mockups/regestration.png)
-![empmain.png ](mockups/empmain.png )
-![emppage.png ](mockups/emppage.png )
-
