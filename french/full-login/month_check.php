@@ -72,6 +72,7 @@ if (isset($_GET['search'])) {
     $month = intval($_GET['month']);
     $day = intval($_GET['day']);
     
+    // NEED HELP: on this query
     $sql = "SELECT *
             FROM checkins
             WHERE date_a BETWEEN '$year-$month-$day' AND '$year-$month-$day' ";
