@@ -66,33 +66,40 @@ include ("configer.php");
 <input  type="submit" name="search" value="  
 Recherche">
 </form>
+
 <?php
 if (isset($_GET['search'])) {
     $year = intval($_GET['year']);
     $month = intval($_GET['month']);
     $day = intval($_GET['day']);
     
-    // NEED HELP: on this query
-    $sql = "SELECT *
-            FROM checkins
-            WHERE date_a BETWEEN '$year-$month-$day' AND '$year-$month-$day' ";
-            $r_query = mysql_query($sql);
-           
-            echo "<table align='center' class='mdl-data-table mdl-js-data-table'><thead><tr><th>FullName</th><th>ArrivalTime</th><th>Check</th></tr></thead> ";
-           while ($row = mysql_fetch_array($r_query)){ 
-			$active = $row['full_name'];
-echo " <tbody><tr><td>" . $active. "</td><td>" . $row["arrival_time"].  "</td><td>" . $row["checks"].  "</td></tr></tbody>" ;  
-   
-} 
-	
-
-
-}  
-
-
+    $sql = "SELECT * FROM checkins WHERE date_a BETWEEN '$year-$month-$day' AND '$year-$month-$day'";
 ?>
-
-
+<table align='center' class='mdl-data-table mdl-js-data-table'>
+    <thead>
+        <tr>
+            <th>FullName</th>
+            <th>ArrivalTime</th>
+            <th>Check</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    while ($row = mysql_fetch_array(mysql_query($sql))) { 
+    ?>
+        <tr>
+            <td><?php echo $row['full_name']; ?></td>
+            <td><?php echo $row["arrival_time"]; ?></td>
+            <td><?php echo $row["checks"]; ?></td>
+        </tr>
+    <?php
+    }
+    ?>
+    </tbody>
+</table>
+<?php
+}
+?>
 
     </body>
 </html>
