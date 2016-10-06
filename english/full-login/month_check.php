@@ -70,6 +70,22 @@ if (isset($_GET['search'])) {
 echo " <tbody><tr><td>" . $active. "</td><td>" . $row["arrival_time"].  "</td><td>" . $row["checks"].  "</td></tr></tbody>" ;  
    
 } 
+	$sql1 = "SELECT * FROM users WHERE id NOT IN (SELECT user_id FROM checkins WHERE date_a BETWEEN '$year-$month-$day' AND '$year-$month-$day')";			  
+							   
+							   
+
+
+		          
+		            $r_query1 = mysql_query($sql1);
+					$row1 = mysqli_fetch_array($r_query1,MYSQLI_ASSOC);
+					$userId1 = $row1['id'];
+					
+		            echo "<table align='center' class='mdl-data-table mdl-js-data-table'><thead><tr><th>FULL_NAME</th><th>CHECKS</th><th>USER_ID</th></tr></thead> ";
+		            while ($row1 = mysql_fetch_array($r_query1)){ 
+		            	echo " - - - - - - - - - - - ";
+		            		echo " <tbody><tr><td>" . $row1["name"]. " ". $row1["surname"].  "</td><td>" . "Absent".  "</td><td>" .$row1["id"]. "</td></tr></tbody>" ; 
+		            	} 
+		            	
 	
 
 
